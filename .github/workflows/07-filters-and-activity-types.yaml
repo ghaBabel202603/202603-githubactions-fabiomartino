@@ -1,12 +1,13 @@
 name: 07 - Filters and Activity Types
-run-name: Filters and Activity Types ${{github.event_name }}
+run-name: Filters and Activity Types ${{github.event_name}} 
 on:
-    workflow_dispatch:
+    workflow_dispatch:        
         inputs:
             debug:
                 description: 'Enable debug mode'
                 required: false
-                default: 'false'
+                type: boolean
+                default: false
 jobs:
     echo:
         runs-on: ubuntu-latest
@@ -14,7 +15,7 @@ jobs:
             DEBUG_MODE: false
         steps:
             - name: Echo message
-              run: echo 'Workflow triggered by filters or activity types with var ${{ var.DEBUG_MODE }}.'
+              run: echo 'Workflow triggered by filters or activity types with var ${{ env.DEBUG_MODE }}.'
 
 
 
